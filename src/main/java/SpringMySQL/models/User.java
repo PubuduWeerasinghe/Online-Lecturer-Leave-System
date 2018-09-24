@@ -3,7 +3,8 @@ package SpringMySQL.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.sql.Date;
+
 
 @Entity
 public class User {

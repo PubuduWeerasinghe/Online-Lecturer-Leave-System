@@ -1,5 +1,5 @@
 package SpringMySQL.controllers;
-
+import SpringMySQL.models.Admin;
 import SpringMySQL.models.Lecture;
 import SpringMySQL.models.User;
 import SpringMySQL.repository.LectureRepository;
@@ -20,9 +20,19 @@ public class UserRequestController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private LectureRepository lectureRepository;
+
     @RequestMapping("/list/{Id}")
     public Iterable<User> list() {
         return userRepository.findAll();
+    }
+
+    @RequestMapping(value = "/e/{lectureId}", method = RequestMethod.GET)
+    public ModelAndView dovie(@PathVariable("lectureId") int lectureId){
+        ModelAndView mv=new ModelAndView( "A" );
+        mv.addObject( "lectureList",userRepository.findById( lectureId).get());
+        return mv;
     }
 
     @RequestMapping("/add")
@@ -37,13 +47,13 @@ public class UserRequestController {
         return mv.addObject( "lectureList", users );
     }
 
-//    @GetMapping("/form")
-//    private ModelAndView A(){
-//        User u1 = new User();
-//       Lecture lecture =  lectureRepository.findById( 2 ).get();
-//       ModelAndView mv = new ModelAndView( "Form" );
+//    @GetMapping("/for")
+//    private ModelAndView AA(){
+//        User u1 = userRepository.findById( 4 ).get();
+//       //User lecture =  userRepository.findById( 0 ).get();
+//       ModelAndView mv = new ModelAndView( "A" );
 //       mv.addObject( "user" , u1 );
-//       mv.addObject( "lecture" , lecture );
+//       //mv.addObject( "lecture" , lecture );
 //        return mv;
 //    }
 
@@ -81,7 +91,31 @@ public class UserRequestController {
         userRepository.save( user );
         return mv1;
 
-
     }
+    @RequestMapping("/Leclog")
+    public String B(){
+        return "LecLogin";
+    }
+
+    @RequestMapping(value = "/LLog",method = RequestMethod.POST)
+    public ModelAndView valid(@RequestParam("email") String email,
+                              @RequestParam("password") String password) {
+
+        System.out.println(email);
+        System.out.println(password);
+
+        ModelAndView mv1 = new ModelAndView( "redirect:/Leclog" );
+        List<Lecture> lec = lectureRepository.findAll();
+        for(Lecture lec1 : lec) {
+
+                if (email.equals( lec1.getEmail() ) && password.equals( lec1.getPassword() )) {
+                    ModelAndView mv = new ModelAndView( "redirect:/form" );
+                    return mv;
+                }
+        }
+        return mv1;
+    }
+
+
 
 }

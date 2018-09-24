@@ -70,6 +70,7 @@
 
 
 
+
             <%--<div class="form-group">--%>
                 <%--<div class="col-xs-6">--%>
                 <%--<label class="control-label " for="userId" >User Id:</label>--%>
@@ -84,7 +85,7 @@
                     <label class="control-label " for="dateFrom">Leave From:</label>
                 </div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="dateFrom" placeholder="Enter Date : YYYY/MM/DD" name="dateFrom">
+                    <input type="date" class="form-control" id="dateFrom" placeholder="Enter Date : YYYY/MM/DD" name="dateFrom">
                 </div>
             </div>
 
@@ -93,7 +94,7 @@
                     <label class="control-label " for="dateTo">Leave To:</label>
                 </div>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="dateTo" placeholder="Enter Date : YYYY/MM/DD" name="dateTo">
+                    <input type="date" class="form-control" id="dateTo" placeholder="Enter Date : YYYY/MM/DD" name="dateTo">
                 </div>
             </div>
 

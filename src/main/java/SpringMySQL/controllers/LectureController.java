@@ -3,6 +3,7 @@ package SpringMySQL.controllers;
 import SpringMySQL.models.Lecture;
 import SpringMySQL.models.User;
 import SpringMySQL.repository.LectureRepository;
+import SpringMySQL.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +20,16 @@ public class LectureController {
     @Autowired
     private LectureRepository lectureRepository;
 
-    @RequestMapping("/home")
+    @Autowired
+    private UserRepository userRepository;
+
+    @RequestMapping("/l/{Id}")
+    public Iterable<User> list() {
+        return userRepository.findAll();
+
+    }
+
+    @RequestMapping("/")
     public String home(){
         return "home";
     }
@@ -37,6 +47,17 @@ public class LectureController {
         return mv.addObject( "lectureList", users );
     }
 
+    @RequestMapping("/Lec")
+    public ModelAndView d() {
+
+        ModelAndView mv = new ModelAndView( "A" );
+        List<User> users1 = (List<User>) userRepository.findAll();
+//        for (User user1 : users1) {
+//            System.out.println( user1.toString() );
+//        }
+        return mv.addObject( "lectureList", users1 );
+    }
+
 
     @RequestMapping(value = "/delete/{lectureId}",method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("lectureId") int lectureId){
@@ -47,7 +68,6 @@ public class LectureController {
 
 
     @RequestMapping(value = "/edit/{lectureId}", method = RequestMethod.GET)
-
     public ModelAndView doview(@PathVariable("lectureId") int lectureId){
         ModelAndView mv=new ModelAndView( "edit" );
         mv.addObject( "lists",lectureRepository.findById( lectureId).get());
@@ -126,10 +146,9 @@ public class LectureController {
 
     }
 
-    @RequestMapping("/A")
-    public String A(){
-        return "Login";
-    }
+
+
+
 
 
 

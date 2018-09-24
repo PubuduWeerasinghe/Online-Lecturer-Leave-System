@@ -45,7 +45,8 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="/A"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/Adminlog"><span class="glyphicon glyphicon-log-in"></span>Admin Login</a></li>
+        <li><a href="/Leclog"><span class="glyphicon glyphicon-log-in"></span>Lecturer Login</a></li>
     </ul>
     </div>
 </nav>
