@@ -1,9 +1,12 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="if" uri="http://www.springframework.org/tags/form" %>
+
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sf="http://www.w3.org/1999/xhtml" lang="en">
+
 <head>
     <title>Login V17</title>
     <meta charset="UTF-8">
@@ -30,23 +33,33 @@
     <link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
+
+
+
 </head>
-<body bgcolor="black">
+<body>
 
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
             <form class="login100-form validate-form" action="/ALog" method="post">
+
+
+
 					<span class="login100-form-title p-b-34">
-						Account Login
+						Admin Login
 					</span>
 
+                <span class="login100-form-title p-b-34">
+                    ${loginError}
+                </span>
+
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
-                    <input id="first-name" class="input100" type="email" name="email" placeholder="Email">
+                    <input id="first-name" class="input100" type="email" name="email" placeholder="Email" required>
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 rs2-wrap-input100 validate-input m-b-20" data-validate="Type password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="Password" required>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -55,25 +68,30 @@
                         Sign in
                     </button>
                 </div>
+                <%--<c:if test="${logError != null}">--%>
+                    <%--<div class="col-xs-6">--%>
+                        <%--<label class="control-label " for="lectureName">Lecture Name:</label>--%>
+                    <%--</div>--%>
+                     <%--</c:if>--%>
 
                 <div class="w-full text-center p-t-27 p-b-239">
 						<span class="txt1">
-							Forgot
+
 						</span>
 
                     <a href="#" class="txt2">
-                        User name / password?
+
                     </a>
                 </div>
 
                 <div class="w-full text-center">
                     <a href="#" class="txt3">
-                        Sign Up
+
                     </a>
                 </div>
             </form>
 
-            <div class="login100-more" style="background-image: url('images/bg-01.jpg');"></div>
+            <div class="login100-more" style="background-image: url('images/cis.jpeg');"></div>
 
         </div>
     </div>

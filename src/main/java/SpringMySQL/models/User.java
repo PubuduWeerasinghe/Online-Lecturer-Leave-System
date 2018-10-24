@@ -6,6 +6,8 @@ import javax.validation.constraints.Size;
 import java.sql.Date;
 
 
+
+
 @Entity
 public class User {
 
@@ -18,12 +20,39 @@ public class User {
     private String type;
     private Date dateFrom;
     private Date dateTo;
+    private Date applyDate;
+    private Integer idd;
+    private String decision;
 
     @ManyToOne
     private Lecture lecture;
 
 
     public User() {
+    }
+
+    public String getDecision() {
+        return decision;
+    }
+
+    public void setDecision(String decision) {
+        this.decision = decision;
+    }
+
+    public Integer getIdd() {
+        return idd;
+    }
+
+    public void setIdd(Integer idd) {
+        this.idd = idd;
+    }
+
+    public Date getApplyDate() {
+        return applyDate;
+    }
+
+    public void setApplyDate(Date applyDate) {
+        this.applyDate = applyDate;
     }
 
     public Lecture getLecture() {
@@ -82,4 +111,6 @@ public class User {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+
 }

@@ -11,7 +11,16 @@
             padding: 20px;
             width: 50%;
             overflow: auto;
+            background-color: #1d253b;
+            border-radius: 5px;
         }
+
+         .body1{
+             background-color: #040016;
+             color: white;
+         }
+
+
     </style>
 
 
@@ -28,13 +37,19 @@
           rel="stylesheet">
     <title>Document</title>
 </head>
-<body bgcolor="#a9a9a9">
-<h2 align="center">Edit Details of Lecture ${lists.lectureName}  </h2>
+<body class="body1" bgcolor="#a9a9a9">
 
 
-<div class="container">
 
-    <form action="/savee" method="post">
+
+<div class="card-header">
+    <h2 class="card-title center" align="center"> Edit Details of Lecturer ${lists.lectureName} </h2>
+</div>
+
+<br><br><br><br>
+<div class="container rounded">
+
+    <form action="/saveEdit" method="post">
             <h2>Edit Details</h2>
 
             <div class="form-group">
@@ -57,18 +72,10 @@
                     <label class="control-label " for="designation">Designation:</label>
                 </div>
                     <div class="col-sm-10">
-                    <input type="text" class="form-control" id="designation"  value="${lists.designation}" placeholder="Enter Designation" name="designation" required>
+                    <input type="text"  class="form-control" id="designation"  value="${lists.designation}" placeholder="Enter Designation" name="designation" required>
                 </div>
             </div>
 
-            <%--<div class="form-group">--%>
-                <%--<div class="col-xs-6">--%>
-                    <%--<label class="control-label " for="department">Department:</label>--%>
-                <%--</div>--%>
-                    <%--<div class="col-sm-10">--%>
-                    <%--<input type="text" class="form-control" id="department"  value="${lists.department}" placeholder="Enter Department" name="department">--%>
-                <%--</div>--%>
-            <%--</div>--%>
 
         <div class="form-group">
             <div class="col-sm-6">

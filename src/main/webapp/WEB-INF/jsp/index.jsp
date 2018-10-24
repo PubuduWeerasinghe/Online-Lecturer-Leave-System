@@ -38,13 +38,12 @@
 <nav class="navbar navbar-inverse navbar-fixed-top >
     <div class="container-fluid>
     <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
+        <a class="navbar-brand" href="#">CIS Lecturers</a>
     </div>
     <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Page 1</a></li>
-        <li><a href="#">Page 2</a></li>
-        <li><a href="#">Page 3</a></li>
+        <li><a href="#">Details</a></li>
+
     </ul>
     <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -54,11 +53,11 @@
 </nav>
 
 <div class="container" style="margin-top:50px">
-    <h3>Fixed Navbar</h3>
+    <h1>Leave Management</h1>
 </div>
 
 <div class="container">
-    <h1>Leave Management</h1>
+
     <form class="form-horizontal" id="Form" action="save" method="post">
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModa"><span class="glyphicon glyphicon-user"> Add new lecturer</span></button>
 
@@ -102,12 +101,6 @@
                                 </div>
                             </div>
 
-                            <%--<div class="form-group">--%>
-                                <%--<div class="col-sm-6">--%>
-                                    <%--<label class="control-label " for="department">Department:</label>--%>
-                                    <%--<input type="text" class="form-control" id="department" placeholder="Enter Department" name="department" required>--%>
-                                <%--</div>--%>
-                            <%--</div>--%>
 
                             <div class="form-group">
                                 <div class="col-sm-6">
@@ -149,12 +142,9 @@
                                     <label class="radio-inline"><input type="radio" name="radio" id="gender1" value="Female">Female</label>
                                 </div>
                             </div>
-
-
-
                         </div>
-
                     </div>
+
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-default"><b>Submit</b></button>
                         <button type="button"  class="btn btn-default" data-dismiss="modal"><b>Close</b></button>
@@ -198,7 +188,7 @@
 
                             <!-- Modal -->
                             <div class="modal fade" id="modal" role="dialog">
-                                <div class="modal-dialog modal-sm">
+                                <div class="modal-dialog modal-sm ">
                                     <div class="modal-content">
                                         <div class="modal-body">
                                             <p>Are you sure to delete? </p>
@@ -216,6 +206,7 @@
                     </tr>
 
                 </c:forEach>
+
                 </tbody>
             </table>
 

@@ -185,11 +185,12 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #f2f2f2;
+  background: #1d253b;
 }
 
 .wrap-login100 {
-  width: 1170px;
+  width: 1000px;
+  height: 700px;
   background: #fff;
   overflow: hidden;
   display: -webkit-box;

@@ -28,6 +28,7 @@
 <div class="container">
 <div class="card">
     <div class="card-block">
+        <form action="/x" method="post">
         <table class="table table-striped">
             <thead>
             <tr>
@@ -40,7 +41,7 @@
                 <th>Date From</th>
                 <th>Date To</th>
                 <th>Reason</th>
-                <th>Dicision</th>
+                <th>Decision</th>
 
 
             </tr>
@@ -58,17 +59,20 @@
                 <td>${list.dateFrom}</td>
                 <td>${list.dateTo}</td>
                 <td>${list.reason}</td>
-                <td>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </td>
-
+                <%--<td>--%>
+                            <%--<select class="form-control" id="decision" name="decision" required>--%>
+                                <%--<option></option>--%>
+                                <%--<option>Accept</option>--%>
+                                <%--<option>Decline</option>--%>
+                            <%--</select>--%>
+                <%--</td>--%>
+                <td> <a href="/sav/${list.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                <%--<td><button type="submit" class="btn btn-default"><b>Apply Leave</b></button></td>--%>
             </tr>
             </c:forEach>
             </tbody>
         </table>
+        </form>
     </div>
 </div>
 </div>

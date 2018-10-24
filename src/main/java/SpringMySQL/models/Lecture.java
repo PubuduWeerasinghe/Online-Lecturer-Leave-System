@@ -20,7 +20,8 @@ public class Lecture {
     private Integer phoneNo;
     private String password;
 
-    @OneToMany(targetEntity = User.class,mappedBy ="lecture", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @OneToMany( targetEntity = User.class,mappedBy ="lecture", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<User> users;
 
 
@@ -36,8 +37,9 @@ public class Lecture {
         return password;
     }
 
-    public void setPassword(String password) {
+    public String setPassword(String password) {
         this.password = password;
+        return password;
     }
 
     public Lecture(String lecId, String lectureName, String designation, String department, String email, String gender, Integer phoneNo, String password) {
@@ -108,9 +110,33 @@ public class Lecture {
         return phoneNo;
     }
 
-    public void setPhoneNo(Integer phoneNo) {
-        this.phoneNo = phoneNo;
+    public Set<User> getUsers() {
+        return users;
     }
 
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
 
+    public void setPhoneNo(Integer phoneNo) {
+        this.phoneNo = phoneNo;
+
+
+    }
+
+    @Override
+    public String toString() {
+        return "Lecture{" +
+                "lectureId=" + lectureId +
+                ", lecId='" + lecId + '\'' +
+                ", lectureName='" + lectureName + '\'' +
+                ", designation='" + designation + '\'' +
+                ", department='" + department + '\'' +
+                ", email='" + email + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNo=" + phoneNo +
+                ", password='" + password + '\'' +
+                ", users=" + users +
+                '}';
+    }
 }

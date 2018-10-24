@@ -5,6 +5,9 @@ import SpringMySQL.models.User;
 import SpringMySQL.repository.LectureRepository;
 import SpringMySQL.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.validation.Valid;
 import java.util.List;
 
+
 @Controller
 public class LectureController {
 
@@ -22,28 +26,46 @@ public class LectureController {
 
     @Autowired
     private UserRepository userRepository;
+//
+//    @RequestMapping("/l/{Id}")
+//    public Iterable<User> list() {
+//        return userRepository.findAll();
+//
+//    }
 
-    @RequestMapping("/l/{Id}")
-    public Iterable<User> list() {
-        return userRepository.findAll();
-
-    }
-
-    @RequestMapping("/")
+    @RequestMapping("/home")
     public String home(){
+
         return "home";
     }
 
+    @RequestMapping("/Z")
+    public String hoe(){
 
-    @RequestMapping("/LecturerDetails")
-    public ModelAndView doHome() {
+        return "response";
+    }
 
-        ModelAndView mv = new ModelAndView( "index" );
+
+
+
+//    @Bean
+//    public PasswordEncoder passwordEncorder(){
+//            return new BCryptPasswordEncoder(  );
+//    }
+//    //Enable JDBC authentiation
+//    @Autowired
+//    public void configAuthentication(AuthenticationManager)
+
+    @RequestMapping("/Lecturerdetails")
+    public ModelAndView doHome(Model model) {
+
+        ModelAndView mv = new ModelAndView( "indexx" );
         List<Lecture> users = (List<Lecture>) lectureRepository.findAll();
         System.out.println( users );
         for (Lecture user : users) {
             System.out.println( user.toString() );
         }
+        model.addAttribute( "message","Success - You are successfully logged" );
         return mv.addObject( "lectureList", users );
     }
 
@@ -61,7 +83,7 @@ public class LectureController {
 
     @RequestMapping(value = "/delete/{lectureId}",method = RequestMethod.GET)
     public ModelAndView delete(@PathVariable("lectureId") int lectureId){
-    ModelAndView mv=new ModelAndView( "redirect:/LecturerDetails" );
+    ModelAndView mv=new ModelAndView( "redirect:/Lecturerdetails" );
     lectureRepository.deleteById( lectureId );
     return mv;
     }
@@ -87,7 +109,7 @@ public class LectureController {
                                @RequestParam("designation") String designation,@RequestParam("department") String department,
                                @RequestParam("email") String email,@RequestParam("radio") String gender, @RequestParam("phoneNo") int phoneNo
             ,@RequestParam("password") String password){
-        ModelAndView mv=new ModelAndView( "redirect:/LecturerDetails" );
+        ModelAndView mv=new ModelAndView( "redirect:/Lecturerdetails" );
         Lecture lec;
 
         if(!lectureId.isEmpty()){
@@ -102,17 +124,28 @@ public class LectureController {
         lec.setEmail( email );
         lec.setGender(gender);
         lec.setPhoneNo( phoneNo );
-        lec.setPassword( password );
+        //lec.setPassword( password );
+
+        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(  );
+        String a = passwordEncoder.encode( password );
+        lec.setPassword( a );
+        System.out.println("AAAAAA");
+        System.out.println(lec.setPassword( a ));
+        System.out.println(a);
+
+
+
+
 
         lectureRepository.save( lec );
         return mv;
     }
 
-    @RequestMapping(value = "/savee",method = RequestMethod.POST)
+    @RequestMapping(value = "/saveEdit",method = RequestMethod.POST)
     public ModelAndView dosave(@RequestParam("lectureId") String lectureId,@RequestParam("lectureName") String lectureName,
                                @RequestParam("designation") String designation,@RequestParam("department") String department,
                                @RequestParam("email") String email, @RequestParam("phoneNo") int phoneNo,@RequestParam("radio") String gender){
-        ModelAndView mv=new ModelAndView( "redirect:/LecturerDetails" );
+        ModelAndView mv=new ModelAndView( "redirect:/Lecturerdetails" );
         Lecture lec;
 
         if(!lectureId.isEmpty()){

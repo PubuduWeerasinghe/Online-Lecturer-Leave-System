@@ -41,100 +41,114 @@
 <body>
 
 
-<div class="container">
+<div class="container" style="width: 80%">
+<div class="row">
+    <div class="col-md-8">
+        <form action="/s" method="post" >
 
-    <form action="/s" method="post">
-        <h2>Edit Details </h2>
+            <h2>Welcome ${lecture.lectureName}</h2>
 
-        <div class="form-group">
+            <div class="form-group">
                 <input type="hidden" class="form-control" id="Id" placeholder="Enter Lecture ID" name="Id" >
-        </div>
-
-        <div class="form-group">
-            <div class="col-xs-6">
-                <label class="control-label " for="lec" >User Id:</label>
-            </div>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="lec" placeholder="Ente" name="lec">
-                <p>${msg}</p>
             </div>
 
-        <div class="form-group">
-            <div class="col-xs-6">
-                <label class="control-label " for="userId" >User Id:</label>
-            </div>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="userId" placeholder="Enter User Id" name="userId">
-                <p>${msg}</p>
-        </div>
-
-
-
-
-            <%--<div class="form-group">--%>
+            <div class="form-group">
                 <%--<div class="col-xs-6">--%>
-                <%--<label class="control-label " for="userId" >User Id:</label>--%>
-            <%--</div>--%>
-            <%--<div class="col-sm-10">--%>
-                <%--<input type="text" class="form-control" id="userId" placeholder="Enter User Id" name="userId" value=${lecture.lecId}>--%>
-               <%--<p>${msg}</p>--%>
-            <%--</div>--%>
-
-            <div class="form-group">
-                <div class="col-xs-6">
-                    <label class="control-label " for="dateFrom">Leave From:</label>
-                </div>
+                    <%--<label class="control-label " for="idd" >User Id:</label>--%>
+                <%--</div>--%>
                 <div class="col-sm-10">
-                    <input type="date" class="form-control" id="dateFrom" placeholder="Enter Date : YYYY/MM/DD" name="dateFrom">
+                    <input type="hidden" class="form-control" id="idd" placeholder="Enter" name="idd" value="${lecture.lectureId}">
                 </div>
             </div>
+                <div class="form-group">
+                    <%--<div class="col-xs-6">--%>
+                        <%--<label class="control-label " for="userId" >User Id:</label>--%>
+                    <%--</div>--%>
+                    <div class="col-sm-10">
+                        <input type="hidden" class="form-control" id="userId" placeholder="Enter User Id" name="userId" value="${lecture.lecId}">
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <div class="col-xs-6">
-                    <label class="control-label " for="dateTo">Leave To:</label>
-                </div>
-                <div class="col-sm-10">
-                    <input type="date" class="form-control" id="dateTo" placeholder="Enter Date : YYYY/MM/DD" name="dateTo">
-                </div>
-            </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label " for="currentDate" >Apply Date</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="currentDate"  name="applyDate" value="${date}">
+                            <p>${msg}</p>
+                        </div>
+                    </div>
 
-            <div class="form-group">
-                <div class="col-sm-6">
-                    <label class="control-label " for="type">Leave Type:</label>
-                </div>
-                <div class="col-sm-10">
-                    <select class="form-control" id="type" name="type" required>
-                        <option>Medical</option>
-                        <option>Official</option>
-                        <option>Personnel</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-            </div>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label " for="dateFrom">Leave From:</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="dateFrom" placeholder="Enter Date : YYYY/MM/DD" name="dateFrom">
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            <div class="col-xs-6">
-                <label for="reason">Reason:</label>
-            </div>
-            <div class="col-sm-10">
-                <textarea class="form-control " rows="5" id="reason" name="reason"></textarea>
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label " for="dateTo">Leave To:</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="dateTo" placeholder="Enter Date : YYYY/MM/DD" name="dateTo">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label class="control-label " for="type">Leave Type:</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <select class="form-control" id="type" name="type" required>
+                                <option>Medical</option>
+                                <option>Official</option>
+                                <option>Personnel</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label for="reason">Reason:</label>
+                        </div>
+                        <div class="col-sm-10">
+                            <textarea class="form-control " rows="5" id="reason" name="reason"></textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <label class="control-label "></label>
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-default"><b>Apply Leave</b></button>
+                        </div>
+                    </div>
+
+
+        </form>
+
+
+    </div>
+    <div class="col-md-4" >
+        <div class="card" style="margin-top: 40px">
+            <%--<img class="card-img-top"  src="img/index.png">--%>
+            <div class="card-body">
+                <h5 class="card-title">${lecture.lectureName}</h5>
+                <p>${lecture.email}</p>
+                <p>${lecture.phoneNo}</p>
+                <p>${lecture.department}</p>
+                <p>${date} ${time}</p>
             </div>
         </div>
+    </div>
+</div>
 
-
-        <div class="form-group">
-            <div class="col-xs-6">
-                <label class="control-label "></label>
-            </div>
-            <div class="col-sm-10">
-                <button type="submit" class="btn btn-default"><b>Save</b></button>
-            </div>
-        </div>
-
-
-        </div>
-        </div>
-    </form>
 
 </div>
 

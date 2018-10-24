@@ -27,10 +27,19 @@
     <link href="A.css"
           rel="stylesheet">
 
+    <style>
+        .body1{
+            background-color: #1d253b;
+        }
+    </style>
+
+
     <title>Leave Management</title>
 
 </head>
-<body background="img/bg-3.jpg">
+<body class="body1">
+
+
 
 <nav class="navbar navbar-inverse navbar-fixed-top >
     <div class="container-fluid>
