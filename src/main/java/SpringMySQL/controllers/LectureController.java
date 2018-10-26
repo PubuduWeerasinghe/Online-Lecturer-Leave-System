@@ -42,12 +42,13 @@ public class LectureController {
     @RequestMapping("/Z")
     public String hoe(){
 
-        return "response";
+        return "home2";
     }
+    @RequestMapping("/V")
+    public String oe(){
 
-
-
-
+        return "user";
+    }
 //    @Bean
 //    public PasswordEncoder passwordEncorder(){
 //            return new BCryptPasswordEncoder(  );
@@ -124,14 +125,12 @@ public class LectureController {
         lec.setEmail( email );
         lec.setGender(gender);
         lec.setPhoneNo( phoneNo );
-        //lec.setPassword( password );
+        lec.setPassword( password );
 
-        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(  );
-        String a = passwordEncoder.encode( password );
-        lec.setPassword( a );
-        System.out.println("AAAAAA");
-        System.out.println(lec.setPassword( a ));
-        System.out.println(a);
+//        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(  );
+//        String a = passwordEncoder.encode( password );
+//        lec.setPassword( a );
+
 
 
 

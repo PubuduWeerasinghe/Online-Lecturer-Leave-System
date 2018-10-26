@@ -4,6 +4,7 @@ import SpringMySQL.models.User;
 import SpringMySQL.repository.LectureRepository;
 import SpringMySQL.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +21,9 @@ import java.util.Optional;
 
 @Controller
 public class UserRequestController {
+
+    private final static String ACCOUNT_SID = "AC8154b2a1be30b23f079e444fa69e6772";
+    private final static String AUTH_TOKEN = "228c21a0677e8700256adeaade80c255";
 
     @Autowired
     private UserRepository userRepository;
@@ -90,7 +94,6 @@ public class UserRequestController {
         ModelAndView mv = new ModelAndView( "leclog" );
         Lecture lecture = lectureRepository.findById( lectureId ).get();
 
-
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
         mv.addObject( "date", date );
@@ -146,6 +149,10 @@ public class UserRequestController {
     public ModelAndView save(@PathVariable("Id") Integer Id){
 
         ModelAndView mv=new ModelAndView( "response" );
+
+        Twilio.
+
+
         mv.addObject( "list",userRepository.findById( Id).get());
         return mv;
     }
@@ -170,8 +177,7 @@ public class UserRequestController {
     }
 
     @RequestMapping("/Leclog")
-    public String B(Model model){
-        model.addAttribute( "A","AAAAA" );
+    public String B(){
         return "LecLogin";
     }
 
@@ -182,25 +188,31 @@ public class UserRequestController {
         System.out.println(email);
         System.out.println(password);
 
-        model.addAttribute( "loginError", "Error logged in" );
         ModelAndView mv1 = new ModelAndView( "redirect:/Leclog" );
         List<Lecture> lec = lectureRepository.findAll();
 
+//        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(  );
+//        String a = passwordEncoder.encode( password );
+//        System.out.println(a);
+        //if(!result.hasErrors()){
         for(Lecture lec1 : lec) {
 
-
-                if (email.equals( lec1.getEmail() ) && password.equals( lec1.getPassword() )) {
+                if (email.equals( lec1.getEmail() ) && password.equals( lec1.getPassword())) {
+                    System.out.println( "AAAAAAAAA" );
                     Lecture l1 = lectureRepository.findByEmail( email );
                     int id = l1.getLectureId();
-                     ModelAndView mv = new ModelAndView( "redirect:/form/" + id );
-                    System.out.println(l1.toString());
-                    return mv;
-
-                }else {
-                    model.addAttribute( "loginError", "Error logged in" );
-                    ModelAndView mv = new ModelAndView( "Login" );
+                    ModelAndView mv = new ModelAndView( "redirect:/form/" + id );
+                    System.out.println( l1.toString() );
+                    model.addAttribute( "A","AAAAAA" );
                     return mv;
                 }
+// else {
+//
+//                    model.addAttribute( "loginError","Error logged in" );
+//                    System.out.println("BBBB");
+//                    ModelAndView mv = new ModelAndView( "LecLogin" );
+//                    return mv;
+//                }
         }
         return mv1;
     }

@@ -44,25 +44,14 @@ public class AdminController {
         List<Admin> admin2 = adminRepository.findAll();
         System.out.println( admin2 );
         for (Admin admin1 : admin2) {
-            model.addAttribute( "aaaa","AAAAAA" );
-//            System.out.println( admin1.toString() );
-//            System.out.println(admin1.getPassword());
-//            System.out.println(admin1.getEmail());
-//
-//            System.out.println(email);
-//            System.out.println(password);
-//
-            boolean a;
 
             if(email.equals( admin1.getEmail() ) && password.equals( admin1.getPassword() )){
-                model.addAttribute( "aaa","Length" );
                 ModelAndView mv1=new ModelAndView( "redirect:/Lecturerdetails" );
 //                a=true;
 //                System.out.println(a);
                 return mv1;
             }else {
-//                System.out.println(email);
-//                System.out.println(password);
+
                 model.addAttribute( "loginError","Error logged in" );
                 ModelAndView mv1 = new ModelAndView( "Login" );
 //                a=false;

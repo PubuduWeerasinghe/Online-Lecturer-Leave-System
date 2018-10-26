@@ -35,6 +35,11 @@
         .body1{
             background-color: #040016;
             color: white;
+            background-image: url("A.jpg") no-repeat center center;
+
+        }
+        .navbar{
+            background-color: #040016;
         }
 
 
@@ -53,8 +58,32 @@
     <link href="../../../resources/static/css/A.css"
           rel="stylesheet">
     <title>Document</title>
+
 </head>
-<body class="body1" bgcolor="#a9a9a9">
+<body class="body1" background="A.jpg">
+
+<header>
+<nav class="navbar navbar-inverse navbar-fixed-top >
+    <div class="container-fluid>
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="/respond"><span class="glyphicon glyphicon-log-in"></span>Admin Login</a></li>
+        <li><a href="/Leclog"><span class="glyphicon glyphicon-log-in"></span>Lecturer Login</a></li>
+    </ul>
+    </div>
+</nav>
+</header>
+
+<br><br><br>
 
     <h2 class="card-title center" align="center"> Leave Application </h2>
 

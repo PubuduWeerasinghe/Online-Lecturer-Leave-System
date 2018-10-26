@@ -44,13 +44,14 @@
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" action="LLog" method="post">
+            <form class="login100-form validate-form" action="/LLog" method="post">
 					<span class="login100-form-title p-b-34">
 						Lecturer Login
 					</span>
 
+
                 <span class="login100-form-title p-b-34">
-                    ${}
+                        ${loginError}
                 </span>
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
@@ -70,7 +71,6 @@
 
                 <div class="w-full text-center p-t-27 p-b-239">
 						<span class="txt1">
-
 						</span>
 
                     <a href="#" class="txt2">

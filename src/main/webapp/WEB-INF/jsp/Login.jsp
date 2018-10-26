@@ -34,14 +34,49 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--===============================================================================================-->
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="home/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="home/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="home/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="home/lib/venobox/venobox.css" rel="stylesheet">
+    <link href="home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="home/css/style.css" rel="stylesheet">
 
 </head>
 <body>
 
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="#intro">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="/Adminlog">Admin Login</a></li>
+                <li><a href="/Leclog">Lectures Login</a></li>
+
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+
 <div class="limiter">
     <div class="container-login100">
-        <div class="wrap-login100">
+        <span class="wrap-login100">
             <form class="login100-form validate-form" action="/ALog" method="post">
 
 
@@ -51,8 +86,9 @@
 					</span>
 
                 <span class="login100-form-title p-b-34">
-                    ${loginError}
+                <span class="label label-danger">${loginError}</span>
                 </span>
+
 
                 <div class="wrap-input100 rs1-wrap-input100 validate-input m-b-20" data-validate="Type user name">
                     <input id="first-name" class="input100" type="email" name="email" placeholder="Email" required>
@@ -123,6 +159,23 @@
 <script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 <script src="js/main.js"></script>
+
+<!-- JavaScript Libraries -->
+<script src="home/lib/jquery/jquery.min.js"></script>
+<script src="home/lib/jquery/jquery-migrate.min.js"></script>
+<script src="home/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="home/lib/easing/easing.min.js"></script>
+<script src="home/lib/superfish/hoverIntent.js"></script>
+<script src="home/lib/superfish/superfish.min.js"></script>
+<script src="home/lib/wow/wow.min.js"></script>
+<script src="home/lib/venobox/venobox.min.js"></script>
+<script src="home/lib/owlcarousel/owl.carousel.min.js"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="home/contactform/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="home/js/main.js"></script>
 
 </body>
 </html>

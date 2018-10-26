@@ -42,7 +42,7 @@
 
 
 <div class="card-header">
-    <h2 class="card-title center" align="center"> Edit Details of Lecturer ${lists.lectureName} </h2>
+    <h2 class="card-title center" align="center">  Leave Request Approval </h2>
 </div>
 
 <br><br><br><br>

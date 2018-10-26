@@ -192,9 +192,7 @@
                                     </thead>
                                     <tbody>
                                     <c:forEach var="list" items="${lectureList}">
-
                                         <tr>
-
                                             <td>${list.lecture.lectureName}</td>
                                             <td class="text-center">${list.lecture.designation}</td>
                                             <td class="text-center">${list.lecture.phoneNo}</td>
