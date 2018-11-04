@@ -3,27 +3,26 @@ import SpringMySQL.models.Lecture;
 import SpringMySQL.models.User;
 import SpringMySQL.repository.LectureRepository;
 import SpringMySQL.repository.UserRepository;
+import com.twilio.Twilio;
+import com.twilio.type.PhoneNumber;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.persistence.Id;
+
 import javax.validation.Valid;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class UserRequestController {
 
-    private final static String ACCOUNT_SID = "AC8154b2a1be30b23f079e444fa69e6772";
-    private final static String AUTH_TOKEN = "228c21a0677e8700256adeaade80c255";
 
     @Autowired
     private UserRepository userRepository;
@@ -45,14 +44,14 @@ public class UserRequestController {
 
     @RequestMapping("/ZZ")
     public String AA(){
-        return "appli";
+        return "home2";
     }
 
     @RequestMapping("/leave")
     public ModelAndView doHome() {
 
         ModelAndView mv = new ModelAndView( "requests" );
-        List<User> users = (List<User>) userRepository.findAll();
+         List<User> users =  userRepository.findAll();
         System.out.println( users );
         for (User user : users) {
             System.out.println( user.toString() );
@@ -68,8 +67,27 @@ public class UserRequestController {
         System.out.println( users );
         for (User user : users) {
             System.out.println( user.toString() );
+            System.out.println(user.getIdd());
+
+//            if(user.getIdd()==61){
+//                System.out.println(user.getLecture().getLectureName());
+//
+//            }
         }
         return mv.addObject( "lectureList", users );
+    }
+
+    @RequestMapping("/B")
+    public ModelAndView d() {
+
+        ModelAndView mvv = new ModelAndView( "LecHome" );
+        List<User> users = (List<User>) userRepository.findAll();
+        System.out.println( users );
+        for (User user : users) {
+
+            System.out.println(user.getIdd());
+        }
+        return mvv.addObject( "lectureList", users );
     }
 
 
@@ -91,8 +109,12 @@ public class UserRequestController {
     @GetMapping("/form/{id}")
     private ModelAndView log(@PathVariable("id") Integer lectureId) {
 
-        ModelAndView mv = new ModelAndView( "leclog" );
+        ModelAndView mv = new ModelAndView( "LecturerHome" );
         Lecture lecture = lectureRepository.findById( lectureId ).get();
+
+
+//        User user = userRepository.findById( lectureId ).get();
+//        System.out.println(user.getIdd());
 
         LocalDate date = LocalDate.now();
         LocalTime time = LocalTime.now();
@@ -102,16 +124,21 @@ public class UserRequestController {
         return mv;
     }
 
-//        @GetMapping("A/{id}")
-//        private ModelAndView lec(@PathVariable("id") Integer lectureId){
+        @GetMapping("/A/{id}")
+        private ModelAndView lc(@PathVariable("id") Integer lectureId){
+
+            ModelAndView mv2 = new ModelAndView( "request" );
+//            User u =userRepository.findById( Id ).get();
 //
-//            ModelAndView mv2 = new ModelAndView( "request" );
-//            Lecture lecture1 =  lectureRepository.findById( lectureId ).get();
-//
-//
-//            mv2.addObject( "lecture" , lecture1 );
-//            return mv2;
-//    }
+//            System.out.println(u.getDateFrom());
+
+            Lecture lecture = lectureRepository.findById( lectureId ).get();
+
+            System.out.println(lecture.getPhoneNo());
+
+            mv2.addObject( "lecture" , lecture );
+            return mv2;
+    }
 
 
     @RequestMapping(value = "/saved",method = RequestMethod.POST)
@@ -144,16 +171,34 @@ public class UserRequestController {
         return mv;
     }
 
-
     @RequestMapping(value = "/sav/{Id}",method = RequestMethod.GET)
     public ModelAndView save(@PathVariable("Id") Integer Id){
 
-        ModelAndView mv=new ModelAndView( "response" );
+        List<User> users = (List<User>) userRepository.findAll();
+        System.out.println( users );
+        for (User user : users) {
+            int a = user.getId();
+            System.out.println( user.getId() );
 
-        Twilio.
+            System.out.println( a );
+        }
+
+            ModelAndView mv = new ModelAndView( "response" );
+            mv.addObject( "list", userRepository.findById( Id ).get() );
+            return mv;
+        }
 
 
-        mv.addObject( "list",userRepository.findById( Id).get());
+    @RequestMapping(value = "/saav",method = RequestMethod.POST)
+    public ModelAndView saveq(){
+
+
+        User user=new User();
+        int a= user.getId();
+        System.out.println(user.getId());
+
+        ModelAndView mv=new ModelAndView( "responsee" );
+        mv.addObject( "list",userRepository.findById( a ).get());
         return mv;
     }
 
@@ -257,10 +302,16 @@ public class UserRequestController {
 //
 //        return mv1;
 //    }
+
+    private final static String ACCOUNT_SID = "AC8154b2a1be30b23f079e444fa69e6772";
+    private final static String AUTH_TOKEN = "228c21a0677e8700256adeaade80c255";
+
+
 @RequestMapping(value = "/savv", method = RequestMethod.POST)
 public ModelAndView dose(@RequestParam("Id") String Id, @RequestParam("decision") String decision){
     ModelAndView mv1=new ModelAndView( "redirect:/leave" );
-    System.out.println("fuckk 2222");
+
+
     System.out.println(decision);
     char[] chars = decision.toCharArray();
     System.out.println(chars);
@@ -272,6 +323,19 @@ public ModelAndView dose(@RequestParam("Id") String Id, @RequestParam("decision"
         System.out.println(b);
         Integer b1 = Integer.valueOf( a + b );
         User user = userRepository.findById( b1 ).get();
+
+        //twilio msg
+        Date date = user.getApplyDate();
+        Integer telephone = user.getLecture().getPhoneNo();
+        String name = user.getLecture().getLectureName();
+        System.out.println(telephone);
+        String tele = "+94" + telephone;
+        System.out.println(tele);
+        Twilio.init(ACCOUNT_SID,AUTH_TOKEN);
+        com.twilio.rest.api.v2010.account.Message message = com.twilio.rest.api.v2010.account.Message.creator(new PhoneNumber(tele),new PhoneNumber( "+447447072945" ) ,name+" your leave request which "+date+ " is accepted" ).create(  );
+        System.out.println(message);
+
+
         System.out.println(user.getDateFrom());
         user.setDecision( "Accepted" );
         userRepository.save(user);
@@ -283,6 +347,18 @@ public ModelAndView dose(@RequestParam("Id") String Id, @RequestParam("decision"
         System.out.println(b);
         Integer b1 = Integer.valueOf( a + b );
         User user = userRepository.findById( b1 ).get();
+
+        //twilio msg
+        String name = user.getLecture().getLectureName();
+        Integer telephone = user.getLecture().getPhoneNo();
+        Date date = user.getApplyDate();
+        System.out.println(telephone);
+        String tele = "+94" + telephone;
+        System.out.println(tele);
+        Twilio.init(ACCOUNT_SID,AUTH_TOKEN);
+        com.twilio.rest.api.v2010.account.Message message = com.twilio.rest.api.v2010.account.Message.creator(new PhoneNumber(tele),new PhoneNumber( "+447447072945" ) ,name+" your leave request which "+date+ " is Declined" ).create(  );
+        System.out.println(message);
+
         System.out.println(user.getDateFrom());
         user.setDecision( "Declined" );
         userRepository.save(user);
@@ -317,6 +393,7 @@ public ModelAndView dose(@RequestParam("Id") String Id, @RequestParam("decision"
         ModelAndView mv1=new ModelAndView( "RequestEdit" );
         Integer userId = user.getId();
         User user2 = userRepository.findById( userId ).get();
+        System.out.println(user2.getIdd());
 
         userRepository.save( user2 );
         return mv1;

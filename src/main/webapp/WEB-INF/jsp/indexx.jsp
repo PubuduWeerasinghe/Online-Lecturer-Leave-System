@@ -33,11 +33,11 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="indexx/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/indexx/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="indexx/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="/indexx/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="indexx/demo/demo.css" rel="stylesheet" />
+    <link href="/indexx/demo/demo.css" rel="stylesheet" />
 
 
     <style>
@@ -49,11 +49,15 @@
         .modal-body1{
             background-color: #222a42;
         }
+        .wrapper1{
+            background-color: #0e84f8;
+        }
+
     </style>
 </head>
 
 <body class="aaa">
-<div class="wrapper">
+<div class="wrapper1">
     <div class="sidebar">
         <!--
           Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
@@ -70,7 +74,7 @@
             <ul class="nav">
                 <li class="active ">
                     <a href="Lecturerdetails">
-                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <i class="tim-icons icon-single-02"></i>
                         <p>Lecturers Details</p>
                     </a>
                 </li>
@@ -157,7 +161,7 @@
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <div class="photo">
-                                    <img src="../assets/img/anime3.png" alt="Profile Photo">
+                                    <img src="indexx/img/anime3.png" alt="Profile Photo">
                                 </div>
                                 <b class="caret d-none d-lg-block d-xl-block"></b>
                                 <p class="d-lg-none">
@@ -195,7 +199,6 @@
             </div>
         </div>
         <!-- End Navbar -->
-
         <div class="content">
             <div class="row">
                 <div class="col-md-12">
@@ -212,7 +215,6 @@
                                     </button>
                                     <span>
                                      <b>${message}</b>
-
                                     </span>
                                 </div>
                             </div>
@@ -309,22 +311,18 @@
                                             <button type="submit" class="btn btn-default"><b>Submit</b></button>
                                             <button type="button"  class="btn btn-default" data-dismiss="modal"><b>Close</b></button>
                                         </div>
-
-
                                     </div>
-
                                 </div>
                             </div>
-                            </form>
-                        </div>
-
+                         </form>
+                       </div>
 
                         <div class="card-header">
                             <h4 class="card-title"> Lecture Details</h4>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table tablesorter " id="">
+                                <table class="table tablesorter " id="" >
                                     <thead class=" text-primary">
                                     <tr>
                                         <th>Lecturer Id</th>
@@ -378,11 +376,13 @@
                         </div>
                     </div>
                 </div>
-                </div>
+
+            </div>
         </div>
 
     </div>
 </div>
+
 
 <!--   Core JS Files   -->
 <script src="indexx/js/core/jquery.min.js"></script>

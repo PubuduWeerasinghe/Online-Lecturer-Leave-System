@@ -25,7 +25,10 @@
 
     <style>
         p.a{
-            color: green;
+            color:#c42311;
+        }
+        .sidebar-wrapper{
+            background-color: #222a42;
         }
     </style>
 </head>
@@ -46,16 +49,16 @@
                 </a>
             </div>
             <ul class="nav">
-                <li class="active">
-                    <a href="./dashboard.html">
+                <li>
+                    <a href="/">
                         <i class="tim-icons icon-chart-pie-36"></i>
                         <p>Request Status</p>
                     </a>
                 </li>
-                <li>
-                    <a href="/form/${list.lectureId}">
+                <li class="active">
+                    <a href="/respond">
                         <i class="tim-icons icon-atom"></i>
-                        <p>Leave Application</p>
+                        <p>Request Status</p>
                     </a>
                 </li>
                 <li>
@@ -214,29 +217,12 @@
         </div>
         <footer class="footer">
             <div class="container-fluid">
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            About Us
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            Blog
-                        </a>
-                    </li>
-                </ul>
+
                 <div class="copyright">
-                    ©
+
                     <script>
                         document.write(new Date().getFullYear())
-                    </script> made with <i class="tim-icons icon-heart-2"></i> by
-                    <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
+                    </script> Department of CIS
                 </div>
             </div>
         </footer>

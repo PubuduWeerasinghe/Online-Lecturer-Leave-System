@@ -1,13 +1,11 @@
 package SpringMySQL.controllers;
 
+import SpringMySQL.Services.LectureService;
 import SpringMySQL.models.Lecture;
 import SpringMySQL.models.User;
 import SpringMySQL.repository.LectureRepository;
 import SpringMySQL.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +24,9 @@ public class LectureController {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private LectureService lectureService;
 //
 //    @RequestMapping("/l/{Id}")
 //    public Iterable<User> list() {
@@ -92,10 +93,18 @@ public class LectureController {
 
     @RequestMapping(value = "/edit/{lectureId}", method = RequestMethod.GET)
     public ModelAndView doview(@PathVariable("lectureId") int lectureId){
-        ModelAndView mv=new ModelAndView( "edit" );
-        mv.addObject( "lists",lectureRepository.findById( lectureId).get());
+        ModelAndView mv=new ModelAndView( "appli" );
+        mv.addObject( "lists",lectureRepository.findById(lectureId).get());
         return mv;
     }
+
+
+//    @RequestMapping(value = "/edit/{lectureId}", method = RequestMethod.GET)
+//    public ModelAndView doview(@PathVariable("lectureId") int lectureId){
+//        ModelAndView mv=new ModelAndView( "TEST2" );
+//        mv.addObject( "lists",lectureService.findLectureById( lectureId ));
+//        return mv;
+//    }
 
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public ModelAndView dologin(){

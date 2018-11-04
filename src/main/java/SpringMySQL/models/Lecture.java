@@ -19,6 +19,7 @@ public class Lecture {
     private String gender;
     private Integer phoneNo;
     private String password;
+    private String imgSrc;
 
 
     @OneToMany( targetEntity = User.class,mappedBy ="lecture", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -42,7 +43,7 @@ public class Lecture {
         return password;
     }
 
-    public Lecture(String lecId, String lectureName, String designation, String department, String email, String gender, Integer phoneNo, String password) {
+    public Lecture(String lecId, String lectureName, String designation, String department, String email, String gender, Integer phoneNo, String password, String imgSrc) {
         this.lecId = lecId;
         this.lectureName = lectureName;
         this.designation = designation;
@@ -51,12 +52,19 @@ public class Lecture {
         this.gender = gender;
         this.phoneNo = phoneNo;
         this.password = password;
-
+        this.imgSrc = imgSrc;
     }
 
     public Lecture() {
     }
 
+    public String getImgSrc() {
+        return imgSrc;
+    }
+
+    public void setImgSrc(String imgSrc) {
+        this.imgSrc = imgSrc;
+    }
 
     public Integer getLectureId() {
         return lectureId;
