@@ -55,7 +55,6 @@
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="#intro">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="/Adminlog">Admin Login</a></li>
                 <li><a href="/Leclog">Lectures Login</a></li>
 

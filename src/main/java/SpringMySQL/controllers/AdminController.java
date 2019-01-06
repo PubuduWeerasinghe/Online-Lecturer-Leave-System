@@ -24,11 +24,10 @@ public class AdminController {
     @Autowired
     private LectureController lectureController;
 
-//    @RequestMapping("/XXX")
-//    public String AA(Model model){
-//        model.addAttribute( "loginError","Error logged in" );
-//        return "Login";
-//    }
+    @RequestMapping("/XX")
+    public String AA(){
+        return "user";
+    }
 
 
     @RequestMapping("/Adminlog")

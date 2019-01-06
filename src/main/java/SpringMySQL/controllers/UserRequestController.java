@@ -42,7 +42,7 @@ public class UserRequestController {
 //        return mv;
 //    }
 
-    @RequestMapping("/ZZ")
+    @RequestMapping("/Home")
     public String AA(){
         return "home2";
     }
@@ -90,21 +90,6 @@ public class UserRequestController {
         return mvv.addObject( "lectureList", users );
     }
 
-
-
-
-//    @GetMapping("/form")
-//    private ModelAndView A(){
-//        User u1 = new User();
-//        //Lecture lecture =  lectureRepository.findById( 2 ).get();
-//        ModelAndView mv = new ModelAndView( "B" );
-//        Lecture n1 = new Lecture();
-//        n1.setLectureName( "akalanka Gamage" );
-//        mv.addObject( "n1",n1 );
-//        mv.addObject( "user" , u1 );
-//        //mv.addObject( "lecture" , lecture );
-//        return mv;
-//    }
 
     @GetMapping("/form/{id}")
     private ModelAndView log(@PathVariable("id") Integer lectureId) {

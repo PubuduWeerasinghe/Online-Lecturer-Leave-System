@@ -45,10 +45,6 @@
         .modal-body{
             color: #0e84f8;
         }
-
-
-
-
     </style>
 </head>
 
@@ -61,35 +57,20 @@
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Leave
-                </a>
-                <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Management
+                    Leave System
                 </a>
             </div>
             <ul class="nav">
                 <li>
                     <a href="Lecturerdetails">
-                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <i class="tim-icons icon-single-02"></i>
                         <p>Lecturers Details</p>
                     </a>
                 </li>
                 <li class="active ">
                     <a href="leave">
-                        <i class="tim-icons icon-atom"></i>
+                        <i class="tim-icons icon-email-85"></i>
                         <p>Leave Requests</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./map.html">
-                        <i class="tim-icons icon-pin"></i>
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="./notifications.html">
-                        <i class="tim-icons icon-bell-55"></i>
-                        <p>Notifications</p>
                     </a>
                 </li>
 
@@ -122,36 +103,11 @@
                                 <span class="d-lg-none d-md-block">Search</span>
                             </button>
                         </li>
-                        <li class="dropdown nav-item">
-                            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                <div class="notification d-none d-lg-block d-xl-block"></div>
-                                <i class="tim-icons icon-sound-wave"></i>
-                                <p class="d-lg-none">
-                                    Notifications
-                                </p>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                                <li class="nav-link">
-                                    <a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
-                                </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a>
-                                </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a>
-                                </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a>
-                                </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                                </li>
-                            </ul>
-                        </li>
+
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <div class="photo">
-                                    <img src="../assets/img/anime3.png" alt="Profile Photo">
+                                    <img src="indexx/img/anime3.png" alt="Profile Photo">
                                 </div>
                                 <b class="caret d-none d-lg-block d-xl-block"></b>
                                 <p class="d-lg-none">
@@ -160,14 +116,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-navbar">
                                 <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                                </li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
-                                </li>
-                                <li class="dropdown-divider"></li>
-                                <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                                    <a href="/Home" class="nav-item dropdown-item">Log out</a>
                                 </li>
                             </ul>
                         </li>

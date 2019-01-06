@@ -34,11 +34,11 @@ public class LectureController {
 //
 //    }
 
-    @RequestMapping("/home")
-    public String home(){
-
-        return "home";
-    }
+//    @RequestMapping("/home")
+//    public String home(){
+//
+//        return "home";
+//    }
 
     @RequestMapping("/Z")
     public String hoe(){
@@ -139,11 +139,6 @@ public class LectureController {
 //        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(  );
 //        String a = passwordEncoder.encode( password );
 //        lec.setPassword( a );
-
-
-
-
-
 
         lectureRepository.save( lec );
         return mv;
