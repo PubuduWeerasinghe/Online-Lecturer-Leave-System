@@ -1,14 +1,13 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="if" uri="http://www.springframework.org/tags/form" %>
-
 
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sf="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
-    <title>Login V17</title>
+    <title>Leave System</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -38,7 +37,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+          rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="home/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -64,9 +64,9 @@
 
         <nav id="nav-menu-container">
             <%--<ul class="nav-menu">--%>
-                <%----%>
-                <%--<li class="menu-active"><a href="/Adminlog">Admin Login</a></li>--%>
-                <%--<li><a href="/Leclog">Lectures Login</a></li>--%>
+            <%----%>
+            <%--<li class="menu-active"><a href="/Adminlog">Admin Login</a></li>--%>
+            <%--<li><a href="/Leclog">Lectures Login</a></li>--%>
 
             <%--</ul>--%>
         </nav><!-- #nav-menu-container -->
@@ -100,7 +100,7 @@
 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
-                        Sign in
+                        Login
                     </button>
                 </div>
                 <%--<c:if test="${logError != null}">--%>
@@ -111,7 +111,6 @@
 
                 <div class="w-full text-center p-t-27 p-b-239">
 						<span class="txt1">
-
 						</span>
 
                     <a href="#" class="txt2">
@@ -127,11 +126,10 @@
             </form>
 
             <div class="login100-more" style="background-image: url('images/cis.jpeg');"></div>
-
-        </div>
+        </span>
     </div>
 </div>
-
+</div>
 
 
 <div id="dropDownSelect1"></div>

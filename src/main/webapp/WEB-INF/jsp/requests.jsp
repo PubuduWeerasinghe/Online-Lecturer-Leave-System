@@ -27,7 +27,7 @@
 
 
     <title>
-        Black Dashboard by Creative Tim
+        Leave System
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -116,7 +116,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-navbar">
                                 <li class="nav-link">
-                                    <a href="/Home" class="nav-item dropdown-item">Log out</a>
+                                    <a href="/logout" class="nav-item dropdown-item">Log out</a>
                                 </li>
                             </ul>
                         </li>

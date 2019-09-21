@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="indexx/img/apple-icon.png">
     <link rel="icon" type="image/png" href="indexx/img/favicon.png">
     <title>
-        Black Dashboard by Creative Tim
+        Leave System
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -87,7 +87,7 @@
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <div class="photo">
-                                    <%--<img src="../assets/img/anime3.png" alt="Profile Photo">--%>
+                                    <img src="indexx/img/anime3.png" alt="Profile Photo">
                                 </div>
                                 <b class="caret d-none d-lg-block d-xl-block"></b>
                                 <p class="d-lg-none">
@@ -96,7 +96,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-navbar">
                                 <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                                    <a href="/logout" class="nav-item dropdown-item">Log out</a>
                                 </li>
                             </ul>
                         </li>

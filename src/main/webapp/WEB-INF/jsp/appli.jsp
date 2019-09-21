@@ -1,4 +1,4 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="if" uri="http://www.springframework.org/tags/form" %>
 
@@ -7,22 +7,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="apple-touch-icon" sizes="76x76" href="/indexx/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/indexx/img/favicon.png">
     <title>
-        Black Dashboard by Creative Tim
+        Leave System
     </title>
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet"/>
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
-    <link href="/indexx/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/indexx/css/nucleo-icons.css" rel="stylesheet"/>
     <!-- CSS Files -->
-    <link href="/indexx/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="/indexx/css/black-dashboard.css?v=1.0.0" rel="stylesheet"/>
     <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="/indexx/demo/demo.css" rel="stylesheet" />
+    <link href="/indexx/demo/demo.css" rel="stylesheet"/>
 </head>
 
 <body class="">
@@ -65,10 +65,12 @@
                             <span class="navbar-toggler-bar bar2"></span>
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
+                        <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
                     </div>
-                    <a class="navbar-brand" href="javascript:void(0)">Lecturer Profile</a>
+                    <a class="navbar-brand" href="javascript:void(0)"></a>
                 </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                     <span class="navbar-toggler-bar navbar-kebab"></span>
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -76,20 +78,35 @@
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="navbar-nav ml-auto">
                         <li class="search-bar input-group">
-                            <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
+                            <button class="btn btn-link" id="search-button" data-toggle="modal"
+                                    data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
                                 <span class="d-lg-none d-md-block">Search</span>
                             </button>
                         </li>
 
                         <li class="dropdown nav-item">
-
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <div class="photo">
+                                    <img src="indexx/img/anime3.png" alt="Profile Photo">
+                                </div>
+                                <b class="caret d-none d-lg-block d-xl-block"></b>
+                                <p class="d-lg-none">
+                                    Log out
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li class="nav-link">
+                                    <a href="/logout" class="nav-item dropdown-item">Log out</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="separator d-lg-none"></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal"
+             aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -114,7 +131,8 @@
 
                                 <div class="row">
                                     <div class="col-md-12">
-                                            <input type="hidden" class="form-control" placeholder="Lecturer Name" value="${lists.lectureId}" name="lectureId" required>
+                                        <input type="hidden" class="form-control" placeholder="Lecturer Name"
+                                               value="${lists.lectureId}" name="lectureId" required>
                                     </div>
                                 </div>
 
@@ -122,7 +140,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Lecturer Name</label>
-                                            <input type="text" class="form-control" placeholder="Designation" value="${lists.lectureName}" name="lectureName" required>
+                                            <input type="text" class="form-control" placeholder="Designation"
+                                                   value="${lists.lectureName}" name="lectureName" required>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +150,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Designation</label>
-                                            <input type="text" class="form-control" placeholder="Department" value="${lists.designation}" name="designation" required>
+                                            <input type="text" class="form-control" placeholder="Department"
+                                                   value="${lists.designation}" name="designation" required>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +160,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>E-mail</label>
-                                            <input type="text" class="form-control" placeholder="Phone Number" value="${lists.email}" name="email" required>
+                                            <input type="text" class="form-control" placeholder="Phone Number"
+                                                   value="${lists.email}" name="email" required>
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +170,8 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Phone Number</label>
-                                            <input type="text" class="form-control" placeholder="Phone Number" value="${lists.phoneNo}" name="phoneNo" required>
+                                            <input type="text" class="form-control" placeholder="Phone Number"
+                                                   value="${lists.phoneNo}" name="phoneNo" required>
                                         </div>
                                     </div>
                                 </div>
@@ -171,8 +193,13 @@
                                         <div class="form-group">
                                             <label>E-mail &nbsp;&nbsp;<br></label>
 
-                                            <label class="radio-inline" ${lists.gender}><input type="radio" name="radio" id="gender" value="Male" required>&nbsp; Male</label>
-                                            <label class="radio-inline"><input type="radio" name="radio" id="gender1" value="Female" required>&nbsp; Female</label>
+                                            <label class="radio-inline" ${lists.gender}><input type="radio" name="radio"
+                                                                                               id="gender" value="Male"
+                                                                                               required>&nbsp;
+                                                Male</label>
+                                            <label class="radio-inline"><input type="radio" name="radio" id="gender1"
+                                                                               value="Female" required>&nbsp;
+                                                Female</label>
 
                                         </div>
                                     </div>
@@ -227,7 +254,8 @@
 
                 <script>
                     document.write(new Date().getFullYear())
-                </script> Department of CIS
+                </script>
+                Department of CIS
             </div>
         </div>
     </footer>
@@ -251,8 +279,8 @@
 <!-- Black Dashboard DEMO methods, don't include it in your project! -->
 <script src="indexx/demo/demo.js"></script>
 <script>
-    $(document).ready(function() {
-        $().ready(function() {
+    $(document).ready(function () {
+        $().ready(function () {
             $sidebar = $('.sidebar');
             $navbar = $('.navbar');
             $main_panel = $('.main-panel');
@@ -268,8 +296,7 @@
             fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
 
-
-            $('.fixed-plugin a').click(function(event) {
+            $('.fixed-plugin a').click(function (event) {
                 if ($(this).hasClass('switch-trigger')) {
                     if (event.stopPropagation) {
                         event.stopPropagation();
@@ -279,7 +306,7 @@
                 }
             });
 
-            $('.fixed-plugin .background-color span').click(function() {
+            $('.fixed-plugin .background-color span').click(function () {
                 $(this).siblings().removeClass('active');
                 $(this).addClass('active');
 
@@ -302,7 +329,7 @@
                 }
             });
 
-            $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+            $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
                 var $btn = $(this);
 
                 if (sidebar_mini_active == true) {
@@ -316,23 +343,23 @@
                 }
 
                 // we simulate the window Resize so the charts will get updated in realtime.
-                var simulateWindowResize = setInterval(function() {
+                var simulateWindowResize = setInterval(function () {
                     window.dispatchEvent(new Event('resize'));
                 }, 180);
 
                 // we stop the simulation of Window Resize after the animations are completed
-                setTimeout(function() {
+                setTimeout(function () {
                     clearInterval(simulateWindowResize);
                 }, 1000);
             });
 
-            $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+            $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
                 var $btn = $(this);
 
                 if (white_color == true) {
 
                     $('body').addClass('change-background');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('body').removeClass('change-background');
                         $('body').removeClass('white-content');
                     }, 900);
@@ -340,7 +367,7 @@
                 } else {
 
                     $('body').addClass('change-background');
-                    setTimeout(function() {
+                    setTimeout(function () {
                         $('body').removeClass('change-background');
                         $('body').addClass('white-content');
                     }, 900);
@@ -351,11 +378,11 @@
 
             });
 
-            $('.light-badge').click(function() {
+            $('.light-badge').click(function () {
                 $('body').addClass('white-content');
             });
 
-            $('.dark-badge').click(function() {
+            $('.dark-badge').click(function () {
                 $('body').removeClass('white-content');
             });
         });

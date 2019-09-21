@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/indexx/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/indexx/img/favicon.png">
     <title>
-        Black Dashboard by Creative Tim
+        Leave System
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -41,7 +41,7 @@
             </div>
             <ul class="nav">
                 <li class="active">
-                    <a href="/">
+                    <a href="">
                         <i class="tim-icons icon-single-02"></i>
                         <p>Leave Application</p>
                     </a>
@@ -67,8 +67,9 @@
                             <span class="navbar-toggler-bar bar2"></span>
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
+                        <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
                     </div>
-                    <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+                    <a class="navbar-brand" href="javascript:void(0)"></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -86,7 +87,7 @@
                         <li class="dropdown nav-item">
                             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                                 <div class="photo">
-                                    <img src="/indexx/anime3.png" alt="Profile Photo">
+                                    <img src="indexx/img/anime3.png" alt="Profile Photo">
                                 </div>
                                 <b class="caret d-none d-lg-block d-xl-block"></b>
                                 <p class="d-lg-none">
@@ -95,7 +96,7 @@
                             </a>
                             <ul class="dropdown-menu dropdown-navbar">
                                 <li class="nav-link">
-                                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
+                                    <a href="/Home" class="nav-item dropdown-item">Log out</a>
                                 </li>
                             </ul>
                         </li>
@@ -189,7 +190,7 @@
                                 </div>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                            <button type="submit" class="btn btn-fill btn-primary">Submit</button>
                         </div>
                         </form>
                     </div>

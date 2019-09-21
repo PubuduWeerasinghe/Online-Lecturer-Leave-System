@@ -24,17 +24,14 @@ public class AdminController {
     @Autowired
     private LectureController lectureController;
 
-    @RequestMapping("/XX")
-    public String AA(){
-        return "user";
-    }
 
-
+    //Admin Login Page
     @RequestMapping("/Adminlog")
-    public String A(){
+    public String A() {
         return "Login";
     }
 
+    //Admin Login Validation
     @RequestMapping(value = "/ALog",method = RequestMethod.POST)
     public ModelAndView valid(@Valid @RequestParam("email") String email,
                               @RequestParam("password") String password, Model model) {
@@ -49,6 +46,7 @@ public class AdminController {
 //                a=true;
 //                System.out.println(a);
                 return mv1;
+
             }else {
 
                 model.addAttribute( "loginError","Error logged in" );
@@ -63,30 +61,12 @@ public class AdminController {
         return mv;
     }
 
+    //Logout
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(HttpSession session){
         session.removeAttribute( "loggedInUser" );
-        return "Login";
+        return "home2";
     }
-
-
-//        ModelAndView mv=new ModelAndView( "Login" );
-//        Admin ad=new Admin();
-//        String e=admin.getEmail();
-//        String p=admin.getPassword();
-//
-//        System.out.println(e);
-//        System.out.println(p);
-//
-//        if(email.equals( "pubudu@gmail.com" ) && password.equals( "12345" )){
-//            ModelAndView mv1=new ModelAndView( "home" );
-//            return mv1;
-//        }else {
-//            System.out.println(email);
-//            System.out.println(password);
-//            ModelAndView mv1 = new ModelAndView( "Login" );
-//            return mv1;
-//        }
 
 
     }

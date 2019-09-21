@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/indexx/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/indexx/img/favicon.png">
     <title>
-        Black Dashboard by Creative Tim
+        Leave System
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -33,9 +33,11 @@
       -->
         <div class="sidebar-wrapper">
             <div class="logo">
-
+                <a href="javascript:void(0)" class="simple-text logo-mini">
+                    CT
+                </a>
                 <a href="javascript:void(0)" class="simple-text logo-normal">
-                    Leave System
+                    Creative Tim
                 </a>
             </div>
             <ul class="nav">
@@ -66,8 +68,9 @@
                             <span class="navbar-toggler-bar bar2"></span>
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
+                        <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
                     </div>
-                    <a class="navbar-brand" href="javascript:void(0)">User Profile</a>
+                    <a class="navbar-brand" href="javascript:void(0)"></a>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -83,7 +86,20 @@
                         </li>
 
                         <li class="dropdown nav-item">
-
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <div class="photo">
+                                    <img src="indexx/img/anime3.png" alt="Profile Photo">
+                                </div>
+                                <b class="caret d-none d-lg-block d-xl-block"></b>
+                                <p class="d-lg-none">
+                                    Log out
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li class="nav-link">
+                                    <a href="/Home" class="nav-item dropdown-item">Log out</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="separator d-lg-none"></li>
                     </ul>
@@ -183,8 +199,9 @@
                                 </div>
 
                         </div>
+
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-fill btn-primary">Save</button>
+                            <button type="submit" class="btn btn-fill btn-primary">Confirm</button>
                         </div>
                         </form>
                     </div>
@@ -228,54 +245,17 @@
     </div>
     <footer class="footer">
         <div class="container-fluid">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link">
-                        Creative Tim
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link">
-                        About Us
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)" class="nav-link">
-                        Blog
-                    </a>
-                </li>
-            </ul>
             <div class="copyright">
-                ©
+
                 <script>
                     document.write(new Date().getFullYear())
-                </script> made with <i class="tim-icons icon-heart-2"></i> by
-                <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
+                </script> Department of CIS
             </div>
         </div>
     </footer>
 </div>
 </div>
-<div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-        <a href="#" data-toggle="dropdown">
-            <i class="fa fa-cog fa-2x"> </i>
-        </a>
 
-
-        <footer class="footer">
-            <div class="container-fluid">
-
-                <div class="copyright">
-
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script> Department of CIS
-                </div>
-            </div>
-        </footer>
-    </div>
-</div>
 <!--   Core JS Files   -->
 <script src="indexx/js/core/jquery.min.js"></script>
 <script src="indexx/js/core/popper.min.js"></script>

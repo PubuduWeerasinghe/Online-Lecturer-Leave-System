@@ -30,23 +30,13 @@ public class UserRequestController {
     @Autowired
     private LectureRepository lectureRepository;
 
-//    @RequestMapping("/list/{Id}")
-//    public Iterable<User> list() {
-//        return userRepository.findAll();
-//    }
-//
-//    @RequestMapping(value = "/e/{lectureId}", method = RequestMethod.GET)
-//    public ModelAndView dovie(@PathVariable("lectureId") int lectureId){
-//        ModelAndView mv=new ModelAndView( "A" );
-//        mv.addObject( "lectureList",userRepository.findById( lectureId).get());
-//        return mv;
-//    }
-
+    //Home Page
     @RequestMapping("/Home")
     public String AA(){
         return "home2";
     }
 
+    //Leaves of Lecturers
     @RequestMapping("/leave")
     public ModelAndView doHome() {
 
@@ -56,9 +46,11 @@ public class UserRequestController {
         for (User user : users) {
             System.out.println( user.toString() );
         }
+
         return mv.addObject( "lectureList", users );
     }
 
+    //Status of the Leave
     @RequestMapping("/respond")
     public ModelAndView doHom() {
 
@@ -77,20 +69,7 @@ public class UserRequestController {
         return mv.addObject( "lectureList", users );
     }
 
-    @RequestMapping("/B")
-    public ModelAndView d() {
-
-        ModelAndView mvv = new ModelAndView( "LecHome" );
-        List<User> users = (List<User>) userRepository.findAll();
-        System.out.println( users );
-        for (User user : users) {
-
-            System.out.println(user.getIdd());
-        }
-        return mvv.addObject( "lectureList", users );
-    }
-
-
+    //Leave Form
     @GetMapping("/form/{id}")
     private ModelAndView log(@PathVariable("id") Integer lectureId) {
 
@@ -109,53 +88,40 @@ public class UserRequestController {
         return mv;
     }
 
-        @GetMapping("/A/{id}")
-        private ModelAndView lc(@PathVariable("id") Integer lectureId){
 
-            ModelAndView mv2 = new ModelAndView( "request" );
-//            User u =userRepository.findById( Id ).get();
+
+//    @RequestMapping(value = "/saved",method = RequestMethod.POST)
+//    public ModelAndView d(@ModelAttribute("user") User user, BindingResult result,Model model){
+//        if(result.hasErrors()){
+//            model.addAttribute( "msg","Length" );
+//            ModelAndView mv2=new ModelAndView( "B" );
+//            return mv2;
+//        }
+//        ModelAndView mv2=new ModelAndView( "B" );
+//        userRepository.save( user );
+//        return mv2;
+//    }
+
+//    @RequestMapping(value = "/saveee",method = RequestMethod.POST)
+//    public ModelAndView dosave(
+//                                @RequestParam("Id") String Id,
+//                               @RequestParam("decision") String decision){
+//        ModelAndView mv=new ModelAndView( "B" );
+//        User user2;
 //
-//            System.out.println(u.getDateFrom());
+//        if(!Id.isEmpty()){
+//            user2=(User) userRepository.findById( Integer.parseInt( Id )).get();
+//        }else{
+//            user2=new User(  );
+//        }
+//
+//        user2.setDecision( decision );
+//        userRepository.save( user2 );
+//        return mv;
+//    }
 
-            Lecture lecture = lectureRepository.findById( lectureId ).get();
 
-            System.out.println(lecture.getPhoneNo());
-
-            mv2.addObject( "lecture" , lecture );
-            return mv2;
-    }
-
-
-    @RequestMapping(value = "/saved",method = RequestMethod.POST)
-    public ModelAndView d(@ModelAttribute("user") User user, BindingResult result,Model model){
-        if(result.hasErrors()){
-            model.addAttribute( "msg","Length" );
-            ModelAndView mv2=new ModelAndView( "B" );
-            return mv2;
-        }
-        ModelAndView mv2=new ModelAndView( "B" );
-        userRepository.save( user );
-        return mv2;
-    }
-
-    @RequestMapping(value = "/saveee",method = RequestMethod.POST)
-    public ModelAndView dosave(
-                                @RequestParam("Id") String Id,
-                               @RequestParam("decision") String decision){
-        ModelAndView mv=new ModelAndView( "B" );
-        User user2;
-
-        if(!Id.isEmpty()){
-            user2=(User) userRepository.findById( Integer.parseInt( Id )).get();
-        }else{
-            user2=new User(  );
-        }
-
-        user2.setDecision( decision );
-        userRepository.save( user2 );
-        return mv;
-    }
-
+    //Leave Sending
     @RequestMapping(value = "/sav/{Id}",method = RequestMethod.GET)
     public ModelAndView save(@PathVariable("Id") Integer Id){
 
@@ -164,41 +130,40 @@ public class UserRequestController {
         for (User user : users) {
             int a = user.getId();
             System.out.println( user.getId() );
-
             System.out.println( a );
         }
-
             ModelAndView mv = new ModelAndView( "response" );
             mv.addObject( "list", userRepository.findById( Id ).get() );
             return mv;
         }
 
 
-    @RequestMapping(value = "/saav",method = RequestMethod.POST)
-    public ModelAndView saveq(){
+//    @RequestMapping(value = "/saav",method = RequestMethod.POST)
+//    public ModelAndView saveq(){
+//
+//
+//        User user=new User();
+//        int a= user.getId();
+//        System.out.println(user.getId());
+//
+//        ModelAndView mv=new ModelAndView( "responsee" );
+//        mv.addObject( "list",userRepository.findById( a ).get());
+//        return mv;
+//    }
 
 
-        User user=new User();
-        int a= user.getId();
-        System.out.println(user.getId());
-
-        ModelAndView mv=new ModelAndView( "responsee" );
-        mv.addObject( "list",userRepository.findById( a ).get());
-        return mv;
-    }
-
-
+    //
     @RequestMapping(value = "/s",method = RequestMethod.POST)
     public ModelAndView valid(@Valid @ModelAttribute("user") User user, BindingResult result,Model model){
 
         if(result.hasErrors()){
             System.out.println("AAAA");
             model.addAttribute( "msg","Length" );
-            ModelAndView mv1=new ModelAndView( "leclog" );
+            ModelAndView mv1=new ModelAndView( "redirect:/respond" );
             return mv1;
         }
 
-        ModelAndView mv1=new ModelAndView( "leclog" );
+        ModelAndView mv1=new ModelAndView( "redirect:/respond" );
         Integer lecid = user.getIdd();
         Lecture lecture = lectureRepository.findById( lecid ).get();
         user.setLecture( lecture );
@@ -206,11 +171,13 @@ public class UserRequestController {
         return mv1;
     }
 
+    //Lecturer Login Page
     @RequestMapping("/Leclog")
     public String B(){
         return "LecLogin";
     }
 
+    //Lecturer Login Validation
     @RequestMapping(value = "/LLog",method = RequestMethod.POST)
     public ModelAndView valid(@RequestParam("email") String email,
                               @RequestParam("password") String password,Model model) {
@@ -246,47 +213,9 @@ public class UserRequestController {
         }
         return mv1;
     }
-//
-//    @RequestMapping(value = "/savv", method = RequestMethod.POST)
-//    public ModelAndView dose(@Valid @ModelAttribute("user") User user, BindingResult result,Model model){
-//        ModelAndView mv1=new ModelAndView( "redirect:/LecturerDetails" );
-//
-//        Integer id = user.getId();
-//        User user1 = userRepository.findById( id ).get();
-//        user1.setLecture( user );
-//        userRepository.save( user );
-//        System.out.println();
-//        return mv1;
-//    }
 
-//    @RequestMapping(value = "/savvv", method = RequestMethod.POST)
-//    public ModelAndView dose(@RequestParam("Id") String Id,
-//                             @RequestParam("decision") String decision, @RequestParam("idd") Integer Idd,
-//                             @RequestParam("userId") String userId, @RequestParam("reason") String reason,
-//                             @RequestParam("type") String type, @RequestParam("dateTo") Date dateTo,
-//                             @RequestParam("dateFrom") Date dateFrom,@RequestParam("applyDate") Date applyDate){
-//        ModelAndView mv1=new ModelAndView( "redirect:/LecturerDetails" );
-//        User user;
-//        if(!Id.isEmpty()){
-//            user=(User) userRepository.findById( Integer.parseInt( Id )).get();
-//            System.out.println(decision);
-//        }else{
-//            user=new User(  );
-//        }
-//        user.setDecision( decision );
-//        user.setIdd( Idd );
-//        user.setUserId( userId );
-//        user.setReason( reason );
-//        user.setType( type );
-//        user.setDateTo( dateTo );
-//        user.setDateFrom( dateFrom );
-//        user.setApplyDate( applyDate );
-//
-//       userRepository.save( user );
-//
-//
-//        return mv1;
-//    }
+
+    //Twillio SMS
 
     private final static String ACCOUNT_SID = "AC8154b2a1be30b23f079e444fa69e6772";
     private final static String AUTH_TOKEN = "228c21a0677e8700256adeaade80c255";

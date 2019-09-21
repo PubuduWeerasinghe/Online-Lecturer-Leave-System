@@ -27,37 +27,9 @@ public class LectureController {
 
     @Autowired
     private LectureService lectureService;
-//
-//    @RequestMapping("/l/{Id}")
-//    public Iterable<User> list() {
-//        return userRepository.findAll();
-//
-//    }
 
-//    @RequestMapping("/home")
-//    public String home(){
-//
-//        return "home";
-//    }
 
-    @RequestMapping("/Z")
-    public String hoe(){
-
-        return "home2";
-    }
-    @RequestMapping("/V")
-    public String oe(){
-
-        return "user";
-    }
-//    @Bean
-//    public PasswordEncoder passwordEncorder(){
-//            return new BCryptPasswordEncoder(  );
-//    }
-//    //Enable JDBC authentiation
-//    @Autowired
-//    public void configAuthentication(AuthenticationManager)
-
+    //Lecturers' Details
     @RequestMapping("/Lecturerdetails")
     public ModelAndView doHome(Model model) {
 
@@ -68,52 +40,45 @@ public class LectureController {
             System.out.println( user.toString() );
         }
         model.addAttribute( "message","Success - You are successfully logged" );
+
         return mv.addObject( "lectureList", users );
     }
 
-    @RequestMapping("/Lec")
-    public ModelAndView d() {
 
-        ModelAndView mv = new ModelAndView( "A" );
-        List<User> users1 = (List<User>) userRepository.findAll();
-//        for (User user1 : users1) {
-//            System.out.println( user1.toString() );
-//        }
-        return mv.addObject( "lectureList", users1 );
-    }
+    //Lecturer Delete
+    @RequestMapping(value = "/delete/{lectureId}", method = RequestMethod.GET)
+    public ModelAndView delete(@PathVariable("lectureId") int lectureId) {
 
+        ModelAndView mv = new ModelAndView( "redirect:/Lecturerdetails" );
+        lectureRepository.deleteById( lectureId );
 
-    @RequestMapping(value = "/delete/{lectureId}",method = RequestMethod.GET)
-    public ModelAndView delete(@PathVariable("lectureId") int lectureId){
-    ModelAndView mv=new ModelAndView( "redirect:/Lecturerdetails" );
-    lectureRepository.deleteById( lectureId );
-    return mv;
-    }
-
-
-    @RequestMapping(value = "/edit/{lectureId}", method = RequestMethod.GET)
-    public ModelAndView doview(@PathVariable("lectureId") int lectureId){
-        ModelAndView mv=new ModelAndView( "appli" );
-        mv.addObject( "lists",lectureRepository.findById(lectureId).get());
         return mv;
     }
 
 
-//    @RequestMapping(value = "/edit/{lectureId}", method = RequestMethod.GET)
-//    public ModelAndView doview(@PathVariable("lectureId") int lectureId){
-//        ModelAndView mv=new ModelAndView( "TEST2" );
-//        mv.addObject( "lists",lectureService.findLectureById( lectureId ));
-//        return mv;
-//    }
+    //Lecturer Edit
+    @RequestMapping(value = "/edit/{lectureId}", method = RequestMethod.GET)
+    public ModelAndView doview(@PathVariable("lectureId") int lectureId) {
 
+        ModelAndView mv = new ModelAndView( "appli" );
+        mv.addObject( "lists", lectureRepository.findById( lectureId ).get() );
+
+        return mv;
+    }
+
+
+
+    //Lecturer Login
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public ModelAndView dologin(){
+
         ModelAndView mv=new ModelAndView( "LecturerLogin" );
 
         return mv;
     }
 
 
+    //New Lecturer Addition
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     public ModelAndView dosave(@RequestParam("lectureId") String lectureId,@RequestParam("lecId") String lecId,@RequestParam("lectureName") String lectureName,
                                @RequestParam("designation") String designation,@RequestParam("department") String department,
@@ -136,14 +101,11 @@ public class LectureController {
         lec.setPhoneNo( phoneNo );
         lec.setPassword( password );
 
-//        BCryptPasswordEncoder passwordEncoder=new BCryptPasswordEncoder(  );
-//        String a = passwordEncoder.encode( password );
-//        lec.setPassword( a );
-
         lectureRepository.save( lec );
         return mv;
     }
 
+    //Save Edited Lecturer Details
     @RequestMapping(value = "/saveEdit",method = RequestMethod.POST)
     public ModelAndView dosave(@RequestParam("lectureId") String lectureId,@RequestParam("lectureName") String lectureName,
                                @RequestParam("designation") String designation,@RequestParam("department") String department,
@@ -178,99 +140,10 @@ public class LectureController {
             return mv1;
         }
         ModelAndView mv1=new ModelAndView( "redirect:/save" );
+
         return mv1;
 
     }
-
-
-
-
-
-
-
-//    @GetMapping("/helloWorld")
-//    String getView(Model model) {
-//        model.addAttribute("msg", "Hello there, This message has been injected from the controller method");
-//        return "index";
-//    }
-
-
-//    @GetMapping("/savee")
-//    @ResponseBody
-//    public String save(){
-//        Lecture x=new Lecture( "P. L. M. Weerasinghe","Senior Lecture",
-//                "CIS","pubudu@gmail.com","Male",1234567,"ABC123");
-//
-//        lectureRepository.save( x );
-//
-//        return "Book";
-//    }
-//    @PostMapping("/sav")
-//    public String save(Lecture c){
-//        lectureRepository.save( c );
-//        return "index";
-//    }
-
-
-
-//    @GetMapping("/enroll")
-//    public ModelAndView newReg(ModelMap model) {
-//        ModelAndView mv = new ModelAndView( "enroll" );
-//        Lecture lecture = new Lecture();
-//        mv.addObject( "lecture",lecture );
-//        return mv;
-//    }
-//
-//    @PostMapping("/savee")
-//    public String saveReg(@Valid Lecture lecture,
-//                          BindingResult result, ModelMap model, RedirectAttributes redirectAttributes){
-//        System.out.println("save controler");
-//        System.out.println(lecture.toString());
-//
-//        if (result.hasErrors()){
-//            return "add";
-//        }
-//        lectureRepository.save( lecture );
-//
-//        return "redirect:/LectureDetails";
-//
-//    }
-//    // Update exisisting value
-//    @PostMapping("/update")
-//    public String updateReg(@Valid Lecture lecture,
-//                          BindingResult result, ModelMap model, RedirectAttributes redirectAttributes){
-//        System.out.println("2222222222save controler");
-//        System.out.println(lecture.toString());
-//
-//        lecture.getLectureId();
-//        if (result.hasErrors()){
-//            return "enroll";
-//        }
-//        //lectureRepository.getOne( lecture.getLectureId() );
-//        Lecture lecture1 = lectureRepository.findById( lecture.getLectureId() ).get();
-//        lecture1 = lecture;
-//        lectureRepository.save( lecture1 );
-//        return "redirect:/LectureDetails";
-//
-//    }
-
-
-//    @RequestMapping("/add")
-//    public ModelAndView add(){
-//        ModelAndView mv = new ModelAndView( "add" );
-//        Lecture lec = new Lecture(  );
-//        mv.addObject( "lecture",lec );
-//        return mv;
-//    }
-
-
-
-//    @RequestMapping(value = "edit/{lectureId}",method = RequestMethod.GET)
-//    public ModelAndView edit(@PathVariable("lectureId") int lectureId){
-//        ModelAndView mv=new ModelAndView( "edit" );
-//        mv.addObject( "lists",lectureRepository.findById( lectureId).get());
-//        return mv;
-//    }
 
 
 }
